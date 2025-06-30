@@ -1,5 +1,11 @@
-import { StyleSheet, Text, View } from "react-native";
-import { Image } from "expo-image";
+// imported library
+import { StyleSheet, View } from "react-native";
+import * as ImagePicker from "expo-image-picker"
+
+//imported components
+import Buttton from "@/component/Buttton";
+import ImageViewer from "@/component/ImageViewer";
+
 
 
 const PlaceHolderImage = require("../../assets/images/background-image.png")
@@ -9,9 +15,15 @@ export default function Index() {
     <View
    style={ styles.container}
     >
-      <Image source={PlaceHolderImage} style={styles.image} /> 
-      <Text style={styles.text}>Home Screen</Text>
-     
+      
+      <View style={styles.imageContainer }>
+            <ImageViewer imgSource={PlaceHolderImage}  />   
+      </View>
+
+      <View style={styles.footerContainer}>
+         <Buttton label="Choose a photo" theme="primary" />
+         <Buttton label="Use this photo" theme="primary"/>
+      </View>
       
     </View>
   );
@@ -22,21 +34,16 @@ container: {
  flex: 1,
  backgroundColor: '#25292e',
  alignItems:"center",
- justifyContent: "center",
+
  
 },
-text:{
-  color: "#fff",
 
+imageContainer:{
+  flex:1,
 },
-button:{
-  fontSize:20,
-  textDecorationLine: "underline",
-  color: "white",
-},
-image: {
-  width: 340,
-  height: 440,
-  borderRadius: 18,
-},
+footerContainer:{
+  flex: 1/3,
+  alignItems: "center",
+  // backgroundColor: "red"
+}
 })
